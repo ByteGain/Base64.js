@@ -1,13 +1,13 @@
 {
-  "name": "Base64",
-  "version": "1.0.1",
+  "name": "bg-base64",
+  "version": "1.0.2",
   "description": "Base64 encoding and decoding",
   "author": "David Chambers <dc@davidchambers.me>",
   "main": "./base64.js",
   "license": "(Apache-2.0 OR WTFPL)",
   "repository": {
     "type": "git",
-    "url": "git://github.com/davidchambers/Base64.js.git"
+    "url": "git@github.com:ByteGain/bg-base64.git"
   },
   "devDependencies": {
     "coffee-script": "1.8.x",

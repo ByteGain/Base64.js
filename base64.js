@@ -1,4 +1,4 @@
-;(function () {
+module.exports = (function () {
 
   var object =
     typeof exports != 'undefined' ? exports :
@@ -15,8 +15,7 @@
 
   // encoder
   // [https://gist.github.com/999166] by [https://github.com/nignag]
-  object.btoa || (
-  object.btoa = function (input) {
+  var btoa = function (input) {
     var str = String(input);
     for (
       // initialize result and counter
@@ -35,12 +34,13 @@
       block = block << 8 | charCode;
     }
     return output;
-  });
+  };
+
+  object.btoa || (object.btoa = btoa);
 
   // decoder
   // [https://gist.github.com/1020396] by [https://github.com/atk]
-  object.atob || (
-  object.atob = function (input) {
+  var atob = function (input) {
     var str = String(input).replace(/[=]+$/, ''); // #31: ExtendScript bad parse of /=
     if (str.length % 4 == 1) {
       throw new InvalidCharacterError("'atob' failed: The string to be decoded is not correctly encoded.");
@@ -60,6 +60,13 @@
       buffer = chars.indexOf(buffer);
     }
     return output;
-  });
+  };
+
+  object.atob || (object.atob = atob);
+
+  return {
+    btoa: btoa,
+    atob: atob
+  };
 
 }());
